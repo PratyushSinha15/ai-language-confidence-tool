@@ -5,7 +5,12 @@
 *.log
 .env
 .idea/
-
+bin/
+obj/
+*.db
+*.db-shm
+*.db-wal
+.vs/
 # ==============================
 # .NET BACKEND (api/)
 # ==============================
@@ -17,10 +22,11 @@ api/**/obj/
 *.userosscache
 *.sln.docstates
 
-# SQLite DB
+# DB
 *.db
 *.db-shm
 *.db-wal
+appsettings.Development.json
 
 # VS Code
 .vscode/
