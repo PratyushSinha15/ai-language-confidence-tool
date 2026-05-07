@@ -15,6 +15,12 @@ public class UserController(AppDbContext context) : ControllerBase
         var users= context.Users.ToListAsync();
         return Ok(users);
     }
+    [HttpGet("test-db")]
+    public async Task<IActionResult> TestDb()
+    {
+        var users = await context.Users.ToListAsync();
+        return Ok(users);
+    }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> getById(string id)
