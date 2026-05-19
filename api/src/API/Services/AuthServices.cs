@@ -8,10 +8,12 @@ namespace API.Services;
 public class AuthServices : IAuthService
 {
     private readonly IUserRepository _userRepository;
+    private readonly IJwtService _jwtService;
 
-    public AuthServices(IUserRepository userRepository)
+    public AuthServices(IUserRepository userRepository, IJwtService jwtService)
     {
         _userRepository = userRepository;
+        _jwtService = jwtService;
     }
     //Implementation Class for IAuthService
     public async Task<AuthResponseDto> RegisterAsync(RegisterRequestDto req)
@@ -44,6 +46,7 @@ public class AuthServices : IAuthService
             CreatedAt = DateTime.UtcNow
         };
         await _userRepository.AddAsync(user);
+        var token= _jwtService.GenerateToken(user);
 
         var AuthResponse = new AuthResponseDto
         {
@@ -52,8 +55,33 @@ public class AuthServices : IAuthService
             Email = user.Email,
             FirstName = user.FirstName,
             LastName = user.LastName,
-            Token = string.Empty
+            Token = token
         };
         return AuthResponse;
+    }
+    public async Task<AuthResponseDto> LoginAsync(LoginRequestDto request)
+    {
+        var user = await _userRepository.GetUserByUsernameAsync(request.Username);
+        if (user == null)
+        {
+            throw new Exception("User not found");
+        }
+
+        var isValid = BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash);
+        if (!isValid)
+        {
+            throw new Exception("Invalid Username or password");
+        }
+        var token=_jwtService.GenerateToken(user);
+
+        return new AuthResponseDto
+        {
+            UserId = user.Id,
+            Username = user.Username,
+            Email = user.Email,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Token = token
+        };
     }
 }
