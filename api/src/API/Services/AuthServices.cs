@@ -2,6 +2,8 @@ using API.DTOs.Auth;
 using API.Entity;
 using API.Repository.IRepository;
 using API.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Services;
 
@@ -82,6 +84,25 @@ public class AuthServices : IAuthService
             FirstName = user.FirstName,
             LastName = user.LastName,
             Token = token
+        };
+    }
+    
+    public async Task<AuthResponseDto> GetMeAsync(string userId)
+    {
+        var user= await _userRepository.GetUserByIdAsync(userId);
+        if (user == null)
+        {
+            throw new Exception("User not found");
+        }
+
+        return new AuthResponseDto
+        {
+            UserId = user.Id,
+            Username = user.Username,
+            Email = user.Email,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Token = string.Empty
         };
     }
 }
