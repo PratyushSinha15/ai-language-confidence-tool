@@ -1,4 +1,4 @@
-using API.DTOs.Auth;
+using Repository.DTOs.Auth;
 
 namespace API.Services.IServices;
 

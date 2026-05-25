@@ -1,6 +1,6 @@
-using API.Entity;
+using Repository.Models;
 
-namespace API.Services.IServices;
+namespace Business.IServices;
 
 public interface IJwtService
 {

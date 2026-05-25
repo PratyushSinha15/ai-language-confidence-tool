@@ -1,11 +1,10 @@
-using API.DTOs.Auth;
-using API.Entity;
-using API.Repository.IRepository;
+using Repository.DTOs.Auth;
+using Repository.IRepository;
 using API.Services.IServices;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+using Business.IServices;
+using Repository.Models;
 
-namespace API.Services;
+namespace Business;
 
 public class AuthServices : IAuthService
 {

@@ -1,12 +1,13 @@
 using System.Text;
-using API.Data;
-using API.Repository;
-using API.Repository.IRepository;
-using API.Services;
+using Repository;
+using Repository.IRepository;
 using API.Services.IServices;
+using Business;
+using Business.IServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Repository.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

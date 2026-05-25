@@ -1,12 +1,11 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using API.Entity;
-using API.Services.IServices;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Repository.Models;
 
-namespace API.Services;
+namespace Business.IServices;
 
 public class JwtService:IJwtService
 {

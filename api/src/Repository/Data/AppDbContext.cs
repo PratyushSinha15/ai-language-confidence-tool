@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using API.Entity;
+﻿using API.Entity;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Data;
+namespace Repository.Models;
 
 public partial class AppDbContext : DbContext
 {

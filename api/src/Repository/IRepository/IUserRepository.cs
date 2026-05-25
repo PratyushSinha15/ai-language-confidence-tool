@@ -1,6 +1,6 @@
-using API.Entity;
+using Repository.Models;
 
-namespace API.Repository.IRepository;
+namespace Repository.IRepository;
 
 public interface IUserRepository
 {

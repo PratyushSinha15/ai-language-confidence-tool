@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using API.Entity;
 
-namespace API.Entity;
+namespace Repository.Models;
 
 public partial class User
 {
