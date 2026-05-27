@@ -1,6 +1,5 @@
 using System.Security.Claims;
 using Repository.DTOs.Auth;
-using API.Entity;
 using API.Services.IServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -1,6 +1,6 @@
 ﻿using Repository.Models;
 
-namespace API.Entity;
+namespace Repository.Models;
 
 public partial class AnalysisResult
 {

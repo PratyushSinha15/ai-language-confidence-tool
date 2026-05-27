@@ -1,5 +1,4 @@
-﻿using API.Entity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Repository.Models;
 
