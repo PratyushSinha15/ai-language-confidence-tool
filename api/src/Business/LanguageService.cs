@@ -54,8 +54,8 @@ public class LanguageService :ILanguageService
             Explanation = savedAnalysis.Explanation,
             Suggestions = savedAnalysis.Suggestions,
             ImprovedText = savedAnalysis.ImprovedText,
-            LanguageBreakdown = savedAnalysis.LanguageBreakdown,
-            Segments = savedAnalysis.Segments,
+            LanguageBreakdown = string.IsNullOrWhiteSpace(savedAnalysis.LanguageBreakdown) ? null : JsonSerializer.Deserialize<object>(savedAnalysis.LanguageBreakdown),
+            Segments = string.IsNullOrWhiteSpace(savedAnalysis.Segments) ? null : JsonSerializer.Deserialize<object>(savedAnalysis.Segments),
             CreatedAt = savedAnalysis.CreatedAt
         };
     }
@@ -74,8 +74,8 @@ public class LanguageService :ILanguageService
             Explanation = r.Explanation,
             Suggestions = r.Suggestions,
             ImprovedText = r.ImprovedText,
-            LanguageBreakdown = r.LanguageBreakdown,
-            Segments = r.Segments,
+            LanguageBreakdown = string.IsNullOrWhiteSpace(r.LanguageBreakdown) ? null : JsonSerializer.Deserialize<object>(r.LanguageBreakdown),
+            Segments = string.IsNullOrWhiteSpace(r.Segments) ? null : JsonSerializer.Deserialize<object>(r.Segments),
             CreatedAt = r.CreatedAt
         }).ToList();
     }
