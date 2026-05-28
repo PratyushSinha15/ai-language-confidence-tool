@@ -14,7 +14,7 @@ public class OllamaService : IOllamaService
         "http://localhost:11434/api/generate";
 
     private const string ModelName =
-        "gpt-oss:20b";
+        "qwen2.5:7b";
 
     const string systemPrompt = @"You are a highly accurate multilingual language detection engine.
 
@@ -98,7 +98,7 @@ public class OllamaService : IOllamaService
             model = ModelName,
             prompt = fullPrompt,
             stream = false,
-            temperature = 0.3,
+            temperature = 0,
             format ="json"
         };
 
@@ -118,6 +118,7 @@ public class OllamaService : IOllamaService
 
             var responseText =
                 await response.Content.ReadAsStringAsync();
+            Console.WriteLine(responseText);
 
             var jsonResponse =
                 JsonSerializer.Deserialize<JsonElement>(
@@ -127,11 +128,19 @@ public class OllamaService : IOllamaService
                     "response",
                     out var responseProperty))
             {
-                var result =
-                    responseProperty.GetString()?.Trim();
+                var aiText = responseProperty.GetString();
 
-                return result ?? string.Empty;
+                if (string.IsNullOrWhiteSpace(aiText))
+                {
+                    throw new Exception(
+                        "Model returned empty response.");
+                }
+
+                return aiText.Trim();
             }
+
+            throw new Exception(
+                "No response field returned from Ollama.");
 
             throw new Exception(
                 "Ollama response does not contain 'response' property.");

@@ -21,6 +21,11 @@ public class LanguageService :ILanguageService
     {
         //ollama lang detection calling
         var aiResponse = await _ollamaService.DetectLanguageAsync(request.InputText);
+        if (string.IsNullOrWhiteSpace(aiResponse))
+        {
+            throw new Exception(
+                "Empty AI response.");
+        }
         var jsonResponse = JsonSerializer.Deserialize<JsonElement>(aiResponse);
         
         var analysis = new AnalysisResult
