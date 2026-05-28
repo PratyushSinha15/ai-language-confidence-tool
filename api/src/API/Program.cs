@@ -11,6 +11,9 @@ using Repository.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//http client for ollama
+builder.Services.AddHttpClient();
+
 // Controllers
 builder.Services.AddControllers();
 
@@ -39,10 +42,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 // Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAnalysisRepository, AnalysisRepository>();
+
 
 // Services
 builder.Services.AddScoped<IAuthService, AuthServices>();
 builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IOllamaService, OllamaService>();
+builder.Services.AddScoped<ILanguageService, LanguageService>();
 
 
 var app = builder.Build();
