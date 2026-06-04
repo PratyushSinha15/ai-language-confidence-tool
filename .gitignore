@@ -2,47 +2,66 @@
 # GENERAL
 # ==============================
 .DS_Store
+Thumbs.db
+
 *.log
+logs/
+
 .env
+.env.*
+
+# IDEs
+.vscode/
 .idea/
-bin/
-obj/
-*.db
-*.db-shm
-*.db-wal
 .vs/
+
 # ==============================
-# .NET BACKEND (api/)
+# .NET BACKEND
 # ==============================
-api/**/bin/
-api/**/obj/
+**/bin/
+**/obj/
 
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
 
-# DB
+# Local configuration / secrets
+appsettings.Development.json
+appsettings.Local.json
+
+# SQLite databases (if used)
 *.db
 *.db-shm
 *.db-wal
-appsettings.Development.json
-
-# VS Code
-.vscode/
 
 # ==============================
-# ANGULAR FRONTEND (ui/)
+# ANGULAR FRONTEND
 # ==============================
-ui/**/node_modules/
-ui/**/dist/
-ui/**/.angular/
+ui/node_modules/
+ui/dist/
+ui/.angular/
 
+# Angular cache
+.angular/cache/
+
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# ==============================
-# OPTIONAL (coverage / temp)
-# ==============================
+# Testing
 coverage/
+
+# ==============================
+# TEMP FILES
+# ==============================
+tmp/
+temp/
+*.tmp
+
+# ==============================
+# OS FILES
+# ==============================
+.DS_Store
+Thumbs.db
