@@ -1,0 +1,15 @@
+.analysis-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .analysis-page {
+    grid-template-columns: 1fr;
+  }
+}

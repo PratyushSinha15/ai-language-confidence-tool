@@ -1,0 +1,52 @@
+.panel {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  padding: 2rem;
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+}
+
+p {
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+textarea {
+  width: 100%;
+  min-height: 320px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+
+  padding: 1rem;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  margin-top: 1.5rem;
+
+  padding: 1rem;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #5B4AD3,
+    #7F77DD
+  );
+
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,33 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Logo -->
+    <a routerLink="/" class="navbar-logo">
+      <span class="logo-icon">🌍</span>
+      <span class="logo-text">LanguageDetect</span>
+    </a>
+
+    <!-- Navigation Links -->
+    <div class="nav-links">
+        <a routerLink="/" class="nav-link">Home</a>
+        <a routerLink="/analysis" class="nav-link">Analysis</a>
+        <a routerLink="/history" class="nav-link">History</a>
+    </div>
+
+    <!-- Auth Buttons -->
+    <div class="auth-buttons">
+      <ng-container *ngIf="!isLoggedIn">
+        <a routerLink="/auth/login" class="btn-signin">
+            Sign In
+        </a>
+        <a routerLink="/auth/register" class="btn-primary">
+            Get Started
+        </a>
+      </ng-container>
+
+      <!-- <ng-container *ngIf="isLoggedIn">
+        <span class="user-info">{{ currentUser?.username }}</span>
+        <button class="btn-logout" (click)="logout()">Logout</button>
+      </ng-container> -->
+    </div>
+  </div>
+</nav>
