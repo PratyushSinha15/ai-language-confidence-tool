@@ -55,3 +55,20 @@ p {
   margin: 0;
   color: #4b5563;
 }
+
+.language {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.language-dot {
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  display: inline-block;
+}

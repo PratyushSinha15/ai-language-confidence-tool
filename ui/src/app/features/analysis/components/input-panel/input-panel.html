@@ -9,11 +9,12 @@
   <label>Enter Text</label>
 
   <textarea
-    placeholder="Paste text here..."
+    [(ngModel)]="text"
+    placeholder="Enter text here..."
     rows="12">
   </textarea>
 
-  <button>
+  <button (click)="analyze()">
     Analyze Text
   </button>
 

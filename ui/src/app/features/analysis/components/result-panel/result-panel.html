@@ -4,42 +4,65 @@
 
   <div class="card">
     <span class="label">Detected Language</span>
-    <h3>English</h3>
+    <h3>
+      {{result?.language}}
+    </h3>
   </div>
 
   <div class="card">
     <span class="label">Confidence</span>
-    <h3>92%</h3>
+    <h3>
+      {{result?.confidence}}%
+    </h3>
 
     <div class="progress">
-      <div class="progress-fill"></div>
+      <div 
+      class="progress-fill"
+      [style.width.%]="result?.confidence">
+      </div>
     </div>
   </div>
 
   <div class="card">
-    <span class="label">Language Breakdown</span>
+
+  <span class="label">
+    Language Breakdown
+  </span>
+
+
+  @for (item of breakdown; track item.name) {
 
     <div class="row">
-      <span>English</span>
-      <span>70%</span>
+
+      <div class="language">
+
+        <span 
+          class="language-dot"
+          [style.background]="item.color">
+        </span>
+
+        <span>
+          {{item.name}}
+        </span>
+
+      </div>
+
+
+      <span>
+        {{item.percentage}}%
+      </span>
+
     </div>
 
-    <div class="row">
-      <span>Hindi</span>
-      <span>20%</span>
-    </div>
+  }
 
-    <div class="row">
-      <span>French</span>
-      <span>10%</span>
-    </div>
-  </div>
+</div>
 
   <div class="card">
     <span class="label">AI Feedback</span>
 
     <p>
-      Your text demonstrates strong language consistency.
+      {{result?.explanation}}
     </p>
   </div>
 

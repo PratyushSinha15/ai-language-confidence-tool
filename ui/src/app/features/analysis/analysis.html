@@ -1,7 +1,12 @@
 <section class="analysis-page">
 
-  <app-input-panel></app-input-panel>
+  <app-input-panel
+    (analyzeText)="analyze($event)">
+  </app-input-panel>
 
-  <app-result-panel></app-result-panel>
+
+  <app-result-panel
+    [result]="result">
+  </app-result-panel>
 
 </section>

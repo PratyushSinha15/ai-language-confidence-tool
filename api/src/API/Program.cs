@@ -20,6 +20,19 @@ builder.Services.AddHttpClient<IOllamaService, OllamaService>(client =>
 // Controllers
 builder.Services.AddControllers();
 
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AngularClient",
+        policy =>
+        {
+            policy
+            .WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+        });
+});
+
 // Database
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
@@ -59,6 +72,7 @@ var app = builder.Build();
 
 // Middlewares
 // app.UseHttpsRedirection();
+app.UseCors("AngularClient");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
