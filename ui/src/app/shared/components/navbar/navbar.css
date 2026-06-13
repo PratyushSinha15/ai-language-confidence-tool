@@ -1,0 +1,143 @@
+.navbar {
+  background: rgba(255, 255, 255, 0.8); 
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); 
+
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.navbar-logo:hover {
+  opacity: 0.8;
+}
+
+.logo-icon {
+  font-size: 24px;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: var(--color-text-primary);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-signin {
+  padding: 8px 16px;
+  background: transparent;
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-signin:hover {
+  background: var(--color-background-secondary);
+}
+
+.btn-primary {
+  padding: 8px 16px;
+  background: #7F77DD;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-logout {
+  padding: 8px 16px;
+  background: transparent;
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-logout:hover {
+  background: var(--color-background-secondary);
+}
+
+.user-info {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  padding: 0 12px;
+  border-right: 0.5px solid var(--color-border-tertiary);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar-container {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  .auth-buttons {
+    flex-basis: 100%;
+    order: 4;
+    justify-content: flex-end;
+  }
+}

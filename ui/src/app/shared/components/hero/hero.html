@@ -1,0 +1,121 @@
+<section class="hero">
+  <div class="hero-container">
+    <!-- Left Side - Content -->
+    <div class="hero-left">
+      <h1 class="hero-title">
+        <span class="hero-accent">AI-Powered</span><br />
+        Multilingual<br />
+        Language<br />
+        Detection
+      </h1>
+
+      <p class="hero-subtitle">
+        Detect languages, analyze mixed-language text, calculate confidence scores,
+        and explore detailed language breakdowns using advanced AI models.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn-primary" >
+          ▶ Try Now
+        </button>
+        <button class="btn-secondary">
+          Learn More →
+        </button>
+      </div>
+
+      <!-- Stats -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <p class="stat-number">50+</p>
+          <p class="stat-label">Languages</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number">99%</p>
+          <p class="stat-label">Accuracy</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number">&lt;1s</p>
+          <p class="stat-label">Response</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side - Demo Preview -->
+    <div class="hero-right" *ngIf="showPreview">
+      <div class="demo-window">
+        <!-- Window Header -->
+        <div class="window-header">
+          <div class="window-controls">
+            <span class="control red"></span>
+            <span class="control yellow"></span>
+            <span class="control green"></span>
+          </div>
+          <span class="window-title">Language Analysis</span>
+        </div>
+
+        <!-- Input Section -->
+        <div class="demo-section">
+          <label class="demo-label">Input Text</label>
+          <div class="demo-input-box">
+            <p class="demo-input-text">{{ sampleText }}</p>
+          </div>
+        </div>
+
+        <!-- Detected Languages -->
+        <div class="demo-section">
+          <label class="demo-label">Detected Languages</label>
+          <div class="language-pills">
+            <span class="language-pill lang-english">English</span>
+            <span class="language-pill lang-french">French</span>
+            <span class="language-pill lang-hindi">Hindi</span>
+          </div>
+        </div>
+
+        <!-- Confidence Score -->
+        <div class="demo-section">
+          <div class="confidence-header">
+            <label class="demo-label">Confidence Score</label>
+            <span class="confidence-value">{{ confidenceScore }}%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="confidenceScore"></div>
+          </div>
+        </div>
+
+        <!-- Language Breakdown -->
+        <div class="demo-section">
+          <label class="demo-label">Language Breakdown</label>
+          <div class="breakdown-bars">
+            <div class="breakdown-item">
+              <div class="breakdown-header">
+                <span class="breakdown-lang">English</span>
+                <span class="breakdown-percent">40%</span>
+              </div>
+              <div class="breakdown-bar">
+                <div class="breakdown-fill" style="width: 40%; background: #5B4AD3;"></div>
+              </div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-header">
+                <span class="breakdown-lang">French</span>
+                <span class="breakdown-percent">30%</span>
+              </div>
+              <div class="breakdown-bar">
+                <div class="breakdown-fill" style="width: 30%; background: #A855F7;"></div>
+              </div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-header">
+                <span class="breakdown-lang">Hindi</span>
+                <span class="breakdown-percent">30%</span>
+              </div>
+              <div class="breakdown-bar">
+                <div class="breakdown-fill" style="width: 30%; background: #22C55E;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
