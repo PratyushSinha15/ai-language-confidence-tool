@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputPanel } from './components/input-panel/input-panel';
 import { ResultPanel } from './components/result-panel/result-panel';
@@ -30,7 +30,8 @@ export class Analysis {
   isLoading = false;
 
   constructor(
-    private analysisService: AnalysisService
+    private analysisService: AnalysisService,
+    private cdr: ChangeDetectorRef
   ){}
 
   analyze(text:string):void{
@@ -44,8 +45,10 @@ export class Analysis {
       inputText: text
     }).subscribe({
       next:(response)=>{
-        this.result=response;
+        this.result = {...response};
+        console.log('Language detection result:', this.result);
         this.isLoading=false;
+        this.cdr.detectChanges();
       },
       error:(error)=>{
         console.error(

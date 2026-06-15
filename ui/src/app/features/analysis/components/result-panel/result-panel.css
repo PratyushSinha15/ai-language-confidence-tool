@@ -1,74 +1,118 @@
 .panel {
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 24px;
-  padding: 2rem;
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:24px;
+  padding:2rem;
+}
+
+h2{
+ margin-top:0;
+ color:#111827;
 }
 
 .card {
-  background: #fafafa;
-  border: 1px solid #f1f5f9;
 
-  border-radius: 16px;
-  padding: 1.25rem;
-  margin-bottom: 1rem;
+ background:#fafafa;
+ border:1px solid #f1f5f9;
+ border-radius:16px;
+ padding:1.25rem;
+ margin-bottom:1rem;
 }
 
 .label {
-  display: block;
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #6b7280;
-  margin-bottom: 0.5rem;
+
+ display:block;
+ font-size:12px;
+ text-transform:uppercase;
+ color:#6b7280;
+ margin-bottom:.7rem;
+ letter-spacing:.5px;
 }
 
+
+
 h3 {
-  margin: 0;
-  color: #5B4AD3;
+ margin:0;
+ color:#5B4AD3;
+ font-size:28px;
+}
+
+.score-header{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
+
+.score-text{
+ font-size:13px;
+ color:#64748b;
 }
 
 .progress {
-  height: 10px;
-  background: #e5e7eb;
-  border-radius: 999px;
-  overflow: hidden;
-  margin-top: 1rem;
+ height:10px;
+ background:#e5e7eb;
+ border-radius:999px;
+ overflow:hidden;
+ margin-top:1rem;
 }
 
+
 .progress-fill {
-  width: 92%;
-  height: 100%;
-  background: linear-gradient(
+
+  height:100%;
+
+ background:linear-gradient(
     90deg,
     #5B4AD3,
     #7F77DD
-  );
+ );
+ border-radius:999px;
+ transition:.5s;
 }
 
 .row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
-}
-
-p {
-  margin: 0;
-  color: #4b5563;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
 }
 
 .language {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+ display:flex;
+ align-items:center;
+ gap:10px;
+}
+
+.language-dot {
+ width:10px;
+ height:10px;
+ border-radius:50%;
+}
+.language-item{
+ margin-bottom:1rem;
+}
+
+.small-progress{
+ height:6px;
+ background:#e5e7eb;
+ border-radius:999px;
+ overflow:hidden;
+ margin-top:8px;
 }
 
 
-.language-dot {
 
-  width: 10px;
-  height: 10px;
+.small-fill{
+ height:100%;
+ border-radius:999px;
+ transition:.5s;
+}
 
-  border-radius: 50%;
+p {
 
-  display: inline-block;
+ color:#4b5563;
+
+ line-height:1.6;
+
+ margin:0;
+
 }

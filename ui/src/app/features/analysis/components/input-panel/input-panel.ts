@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-input-panel',
+  standalone:true,
   imports: [FormsModule],
   templateUrl: './input-panel.html',
   styleUrl: './input-panel.css',

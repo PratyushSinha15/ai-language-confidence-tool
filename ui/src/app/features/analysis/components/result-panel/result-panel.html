@@ -12,13 +12,13 @@
   <div class="card">
     <span class="label">Confidence</span>
     <h3>
-      {{result?.confidence}}%
+      {{ ((result?.confidence ?? 0) * 100) | number:'1.0-0' }}%
     </h3>
 
     <div class="progress">
       <div 
       class="progress-fill"
-      [style.width.%]="result?.confidence">
+      [style.width.%]="(result?.confidence ?? 0) * 100">
       </div>
     </div>
   </div>

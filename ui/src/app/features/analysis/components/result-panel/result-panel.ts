@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DetectResponse } from '../../../../models/DetectResponse';
+import { CommonModule } from '@angular/common';
 
 interface LanguageItem {
   name: string;
@@ -9,11 +10,12 @@ interface LanguageItem {
 
 @Component({
   selector: 'app-result-panel',
-  imports: [],
+  standalone:true,
+  imports: [CommonModule],
   templateUrl: './result-panel.html',
   styleUrl: './result-panel.css',
 })
-export class ResultPanel {
+export class ResultPanel implements OnChanges {
   @Input() 
   result: DetectResponse | null = null;
 
@@ -27,26 +29,28 @@ export class ResultPanel {
     default: '#64748B'
   };
 
-  get breakdown(): LanguageItem[] {
+  breakdown: LanguageItem[] = [];
 
-    if(!this.result?.languageBreakdown){
-      return [];
-    }
+  ngOnChanges(changes: SimpleChanges){
+    if(changes['result']){
+      console.log(
+        "ResultPanel received:",
+        changes['result'].currentValue
+      );
+      this.result = changes['result'].currentValue;
 
-
-    return Object.entries(
-      this.result.languageBreakdown
-    ).map(([language, percentage]) => {
-      return {
-        name: language,
-        percentage: Number(percentage),
-        color:
+      if(this.result?.languageBreakdown){
+        this.breakdown = Object.entries(
+          this.result.languageBreakdown
+        ).map(([language, percentage])=>({
+          name:language,
+          percentage:Number(percentage),
+          color:
           this.colors[language] ??
           this.colors['default']
-      };
-      
-    });
-
+        }));
+      }
+    }
   }
 
 }

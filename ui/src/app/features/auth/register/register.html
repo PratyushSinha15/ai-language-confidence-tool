@@ -1,1 +1,39 @@
-<p>register works!</p>
+<div class="auth-page">
+
+    <div class="auth-card">
+
+        <h2>Create Account</h2>
+
+        <input
+        placeholder="Username"
+        [(ngModel)]="form.username"
+        />
+
+        <input
+        placeholder="Email"
+        [(ngModel)]="form.email"
+        />
+
+        <input
+        placeholder="First Name"
+        [(ngModel)]="form.firstName"
+        />
+
+        <input
+        placeholder="Last Name"
+        [(ngModel)]="form.lastName"
+        />
+
+        <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="form.password"
+        />
+
+        <button (click)="register()">
+            Create Account
+        </button>
+
+    </div>
+
+</div>
