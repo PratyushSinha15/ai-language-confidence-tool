@@ -3,31 +3,62 @@
     <!-- Logo -->
     <a routerLink="/" class="navbar-logo">
       <span class="logo-icon">🌍</span>
-      <span class="logo-text">LanguageDetect</span>
+      <span class="logo-text">
+        LangDetect
+      </span>
     </a>
 
-    <!-- Navigation Links -->
     <div class="nav-links">
-        <a routerLink="/" class="nav-link">Home</a>
-        <a routerLink="/analysis" class="nav-link">Analysis</a>
-        <a routerLink="/history" class="nav-link">History</a>
+      <a 
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}"
+        class="nav-link">
+        Home
+      </a>
+      <a 
+        routerLink="/analysis"
+        routerLinkActive="active"
+        class="nav-link">
+        Analysis
+      </a>
+      <a 
+        routerLink="/history"
+        routerLinkActive="active"
+        class="nav-link">
+        History
+      </a>
     </div>
 
-    <!-- Auth Buttons -->
     <div class="auth-buttons">
-      <ng-container *ngIf="!isLoggedIn">
-        <a routerLink="/auth/login" class="btn-signin">
-            Sign In
+      @if(!isLoggedIn){
+        <a 
+          routerLink="/auth/login"
+          class="btn-signin">
+          Sign In
         </a>
-        <a routerLink="/auth/register" class="btn-primary">
-            Get Started
-        </a>
-      </ng-container>
 
-      <!-- <ng-container *ngIf="isLoggedIn">
-        <span class="user-info">{{ currentUser?.username }}</span>
-        <button class="btn-logout" (click)="logout()">Logout</button>
-      </ng-container> -->
+        <a 
+          routerLink="/auth/register"
+          class="btn-primary">
+          Sign Up
+        </a>
+      }
+      @else {
+        <div class="user-profile">
+          <div class="avatar">
+            {{ getInitials(currentUser?.username) }}
+          </div>
+          <span class="username">
+            {{ currentUser?.username }}
+          </span>
+        </div>
+        <button
+          class="btn-logout"
+          (click)="logout()">
+          Logout
+        </button>
+      }
     </div>
   </div>
 </nav>

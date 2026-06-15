@@ -30,6 +30,10 @@ public class LanguageController : ControllerBase
             }
 
             var result = await _languageService.DetectLanguageAsync(userId, request);
+            _logger.LogInformation(
+                "Sending response: {@result}",
+                result
+            );
             return Ok(result);
         }
         catch (Exception ex)
