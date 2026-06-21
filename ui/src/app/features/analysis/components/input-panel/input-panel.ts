@@ -15,5 +15,12 @@ export class InputPanel {
   analyze(){
     this.analyzeText.emit(this.text);
   }
-  
+  @Output()
+  clear = new EventEmitter<void>();
+
+  clearText(){
+    this.text='';
+    this.clear.emit();
+  }
+    
 }

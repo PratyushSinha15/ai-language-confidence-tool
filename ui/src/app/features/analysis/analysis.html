@@ -1,12 +1,42 @@
 <section class="analysis-page">
 
-  <app-input-panel
-    (analyzeText)="analyze($event)">
-  </app-input-panel>
+
+  <div class="input-wrapper">
+
+    <app-input-panel
+      (analyzeText)="analyze($event)"
+      (clear)="clear()">
+    </app-input-panel>
 
 
-  <app-result-panel
-    [result]="result">
-  </app-result-panel>
+  </div>
+
+
+
+  <div class="result-wrapper">
+
+
+    @if(isLoading){
+
+      <div class="loading-overlay">
+
+        <div class="spinner"></div>
+
+        <span>
+          Analyzing...
+        </span>
+
+      </div>
+
+    }
+
+
+    <app-result-panel
+      [result]="result">
+    </app-result-panel>
+
+
+  </div>
+
 
 </section>

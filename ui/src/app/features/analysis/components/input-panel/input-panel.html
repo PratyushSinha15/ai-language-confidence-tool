@@ -14,8 +14,14 @@
     rows="12">
   </textarea>
 
-  <button (click)="analyze()">
-    Analyze Text
-  </button>
+  <div class = "action-buttons">
+    <button class="analyze-btn" (click)="analyze()">
+      Analyze Text
+    </button>
+    
+    <button class="clear-btn"(click)="clearText()">
+      Clear
+    </button>
+  </div>
 
 </div>
