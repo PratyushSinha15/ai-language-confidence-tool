@@ -32,21 +32,42 @@ textarea {
   box-sizing: border-box;
 }
 
-button {
-  width: 100%;
-  margin-top: 1.5rem;
+.action-buttons {
+  display:flex;
+  gap:12px;
+  margin-top:1rem;
+}
 
-  padding: 1rem;
-
-  border: none;
-  border-radius: 12px;
-
-  background: linear-gradient(
-    135deg,
+.analyze-btn {
+  flex:3;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(
+    90deg,
     #5B4AD3,
     #7F77DD
   );
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+}
 
-  color: white;
-  cursor: pointer;
+.clear-btn {
+  flex:1;
+  padding:14px;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  background:white;
+  color:#ef4444;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.analyze-btn:hover {
+  opacity:.9;
+}
+
+.clear-btn:hover {
+  background:#fef2f2;
 }

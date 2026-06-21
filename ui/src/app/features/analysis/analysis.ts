@@ -14,18 +14,6 @@ import { DetectResponse } from '../../models/DetectResponse';
 export class Analysis {
   inputText = '';
 
-  // result: DetectResponse | null = {
-  //   id: 1,
-  //   inputText: "Hello Bonjour नमस्ते",
-  //   language: "English",
-  //   confidence: 85,
-  //   languageBreakdown: {
-  //     English: 50,
-  //     Hindi: 30,
-  //     French: 20
-  //   },
-  //   explanation: "Test response"
-  // };
   result: DetectResponse | null = null;
   isLoading = false;
 
@@ -58,7 +46,11 @@ export class Analysis {
         this.isLoading=false;
       }
     });
+  }
 
-}
-  
+  clear(){
+    this.inputText='';
+    this.result=null;
+    this.isLoading=false;
+  }
 }
