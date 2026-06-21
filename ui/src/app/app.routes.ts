@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { Home } from './features/home/home';
 import { Analysis } from './features/analysis/analysis';
 import { History } from './features/history/history';
+import { authGuard } from './core/guards/auth-guard';
 
 export const routes: Routes = [
   {
@@ -26,11 +27,15 @@ export const routes: Routes = [
   },
   {
     path: 'analysis',
-    component: Analysis
+    canActivate:[authGuard],
+    loadComponent:()=>import('./features/analysis/analysis')
+          .then(m=>m.Analysis)
   },
   {
     path: 'history',
-    component: History
+    canActivate:[authGuard],
+    loadComponent:()=>import('./features/history/history')
+          .then(m=>m.History)
   },
   {
     path: '**',
