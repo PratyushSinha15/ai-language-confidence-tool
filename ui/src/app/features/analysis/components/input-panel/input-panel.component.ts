@@ -1,0 +1,26 @@
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-input-panel',
+  standalone:true,
+  imports: [FormsModule],
+  templateUrl: './input-panel.component.html',
+  styleUrl: './input-panel.component.css',
+})
+export class InputPanel {
+  text="";
+  @Output()
+  analyzeText = new EventEmitter<string>();
+  analyze(){
+    this.analyzeText.emit(this.text);
+  }
+  @Output()
+  clear = new EventEmitter<void>();
+
+  clearText(){
+    this.text='';
+    this.clear.emit();
+  }
+    
+}
